@@ -200,11 +200,11 @@ def lunar_lander(state, t, force):
     x = state[0] # is the angle
     x_dot = state[1] # is the angular veloicity
     dtx = x_dot
-    dtx_dot = (1/M)*(force[0]+force[1])*math.sin(state[4]) - (1/M)*(cw*rho_air*A/2)*(state[1])**2#-turbulence)**2
+    dtx_dot = (1/M)*(force[0]+force[1])*math.sin(state[4]) - (1/M)*np.sign(state[1])*(cw*rho_air*A/2)*(state[1])**2#-turbulence**2
     y = state[2] # is the angle
     y_dot = state[3] # is the angular veloicity
     dty = y_dot
-    dty_dot = (1/M)*(force[0]+force[1])*math.cos(state[4]) + g - (1/M)*(cw*rho_air*A/2)*(state[3])**2#+turbulence)**2
+    dty_dot = (1/M)*(force[0]+force[1])*math.cos(state[4]) + g - (1/M)*np.sign(state[3])*(cw*rho_air*A/2)*(state[3])**2#+turbulence**2
     alpha = state[4] # is the angle
     alpha_dot = state[5] # is the angular veloicity
     dtalpha = alpha_dot
